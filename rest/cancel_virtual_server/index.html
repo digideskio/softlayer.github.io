@@ -52,6 +52,10 @@
                     
                         <li><a href="https://softlayer.github.io/python/">python</a></li>
                     
+                        <li><a href="https://softlayer.github.io/release_notes/">release notes</a></li>
+                    
+                        <li><a href="https://softlayer.github.io/rest/">rest</a></li>
+                    
                         <li><a href="https://softlayer.github.io/ruby/">ruby</a></li>
                     
                         <li><a href="https://softlayer.github.io/tools/">tools</a></li>
@@ -79,7 +83,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <div class="well well-sm">
+            <div class="well well-sm" style="word-wrap: break-word;">
                 <h3>Cancel virtual server<br> <small>Example of how to cancel a virtual server (VSI) through a DELETE API operation</small></h3>
                 <hr>
                 
@@ -87,8 +91,11 @@
 
 <p>URL: <code>SoftLayer_Virtual_Guest/{server_id}</code></p>
 
-<p>Example CURL: <code>curl --user userid:api_key curl -X DELETE
-https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/123456</code></p>
+<p>Example CURL:</p>
+
+<pre><code>$ curl --user userid:api_key curl -X DELETE
+https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/123456
+</code></pre>
 
 <p>Example Response:</p>
 

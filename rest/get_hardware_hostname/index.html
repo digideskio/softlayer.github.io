@@ -52,6 +52,10 @@
                     
                         <li><a href="https://softlayer.github.io/python/">python</a></li>
                     
+                        <li><a href="https://softlayer.github.io/release_notes/">release notes</a></li>
+                    
+                        <li><a href="https://softlayer.github.io/rest/">rest</a></li>
+                    
                         <li><a href="https://softlayer.github.io/ruby/">ruby</a></li>
                     
                         <li><a href="https://softlayer.github.io/tools/">tools</a></li>
@@ -79,7 +83,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <div class="well well-sm">
+            <div class="well well-sm" style="word-wrap: break-word;">
                 <h3>Get Hardware hostnames<br> <small>Calls SoftLayer_Account::getObect() to retrieve some basic information about an account, and uses an objectMask to retrieve the hostname of all hardware on the account</small></h3>
                 <hr>
                 
@@ -87,9 +91,12 @@
 
 <p>Method: <a href="http://sldn.softlayer.com/reference/services/SoftLayer_Account/getObject"><code>SoftLayer_Account::getObject()</code></a></p>
 
-<p>URL: <code>SoftLayer_Account/getObject?objectMask=mask\[companyName,hardware\[hostname\]\]&quot;</code></p>
+<p>URL: <code>SoftLayer_Account/getObject?objectMask=mask[companyName,hardware[hostname]]&quot;</code></p>
 
-<p>Example CURL: <code>curl -u username:api_key &quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask\[companyName,hardware\[hostname\]\]&quot;</code></p>
+<p>Example CURL:</p>
+
+<pre><code>$ curl -u -g username:api_key &quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask[companyName,hardware[hostname]]&quot;
+</code></pre>
 
 <p>Example Response:</p>
 

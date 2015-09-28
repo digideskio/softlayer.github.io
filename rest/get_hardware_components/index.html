@@ -52,6 +52,10 @@
                     
                         <li><a href="https://softlayer.github.io/python/">python</a></li>
                     
+                        <li><a href="https://softlayer.github.io/release_notes/">release notes</a></li>
+                    
+                        <li><a href="https://softlayer.github.io/rest/">rest</a></li>
+                    
                         <li><a href="https://softlayer.github.io/ruby/">ruby</a></li>
                     
                         <li><a href="https://softlayer.github.io/tools/">tools</a></li>
@@ -79,7 +83,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <div class="well well-sm">
+            <div class="well well-sm" style="word-wrap: break-word;">
                 <h3>GetHardware with network components<br> <small>Calls SoftLayer_Account::getHardware() with an objectMask to get some information about the networkComponents</small></h3>
                 <hr>
                 
@@ -91,7 +95,10 @@
 
 <p>Parameters <code>objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]</code></p>
 
-<p>Example CURL: <code>curl -u username:api_key -G --data &quot;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&quot;  &quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getHardware&quot;</code></p>
+<p>Example CURL:</p>
+
+<pre><code>$ curl -u username:api_key -G --data &quot;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&quot;  &quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getHardware&quot;
+</code></pre>
 
 <p>Example Response:</p>
 
@@ -237,6 +244,7 @@
                 <hr>
                 <strong>Tags <span class="fa fa-tags"/></strong><br>
                 <a class="label label-default" href="https://softlayer.github.io/tags/objectmask">objectMask</a>
+                 <a class="label label-default" href="https://softlayer.github.io/tags/hardware">hardware</a>
                  
                 <hr>
                 <strong>Feedback? <span class="fa fa-comment"/></strong>

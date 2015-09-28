@@ -87,8 +87,11 @@ if __name__ == &#39;__main__&#39;:
 
 &lt;p&gt;URL: &lt;code&gt;SoftLayer_Virtual_Guest.json?objectMask=id&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -X POST --data @vs_create.json --user userid:api_key
-https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest.json?objectMask=id&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X POST --data @vs_create.json --user userid:api_key
+https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest.json?objectMask=mask.id
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Input JSON:&lt;/p&gt;
 

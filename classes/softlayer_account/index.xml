@@ -18,9 +18,12 @@
 
 &lt;p&gt;Method: &lt;a href=&#34;http://sldn.softlayer.com/reference/services/SoftLayer_Account/getObject&#34;&gt;&lt;code&gt;SoftLayer_Account::getObject()&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask\[companyName,hardware\[hostname\]\]&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask[companyName,hardware[hostname]]&amp;quot;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask\[companyName,hardware\[hostname\]\]&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u -g username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask[companyName,hardware[hostname]]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 
@@ -55,9 +58,12 @@
 
 &lt;p&gt;Method: &lt;a href=&#34;http://sldn.softlayer.com/reference/services/SoftLayer_Account/getObject&#34;&gt;&lt;code&gt;SoftLayer_Account::getObject()&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=hardware.hostname;hourlyVirtualGuests.hostname;hourlyVirtualGuests.domain&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask[hardware.hostname,hourlyVirtualGuests[hostname,domain]]&amp;quot;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=hardware.hostname;hourlyVirtualGuests.hostname;hourlyVirtualGuests.domain&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask[hardware.hostname,hourlyVirtualGuests[hostname,domain]]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 
@@ -157,7 +163,10 @@
 
 &lt;p&gt;Parameters &lt;code&gt;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key -G --data &amp;quot;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&amp;quot;  &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getHardware&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u username:api_key -G --data &amp;quot;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&amp;quot;  &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getHardware&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 

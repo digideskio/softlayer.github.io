@@ -18,8 +18,11 @@
 
 &lt;p&gt;URL: &lt;code&gt;SoftLayer_Virtual_Guest/{server_id}&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl --user userid:api_key curl -X DELETE
-https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/123456&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl --user userid:api_key curl -X DELETE
+https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/123456
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 

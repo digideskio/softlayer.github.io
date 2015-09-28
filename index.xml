@@ -9,43 +9,6 @@
     <updated>Wed, 30 Sep 2015 00:00:00 UTC</updated>
     
     <item>
-      <title>Get Hardware hostnames</title>
-      <link>https://softlayer.github.io/rest/get_hardware_hostname/</link>
-      <pubDate>Wed, 30 Sep 2015 00:00:00 UTC</pubDate>
-      <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/rest/get_hardware_hostname/</guid>
-      <description>&lt;p&gt;Operation: &lt;code&gt;GET&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Method: &lt;a href=&#34;http://sldn.softlayer.com/reference/services/SoftLayer_Account/getObject&#34;&gt;&lt;code&gt;SoftLayer_Account::getObject()&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask\[companyName,hardware\[hostname\]\]&amp;quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask\[companyName,hardware\[hostname\]\]&amp;quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Example Response:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-    &amp;quot;companyName&amp;quot;: &amp;quot;SoftLayer Internal - Development Community&amp;quot;,
-    &amp;quot;hardware&amp;quot;: [
-        {
-            &amp;quot;hostname&amp;quot;: &amp;quot;bsdal5167180245106688&amp;quot;
-        },
-        {
-            &amp;quot;hostname&amp;quot;: &amp;quot;db-server&amp;quot;
-        },
-        {
-            &amp;quot;hostname&amp;quot;: &amp;quot;db-server&amp;quot;
-        },
-        {
-            &amp;quot;hostname&amp;quot;: &amp;quot;deleteme&amp;quot;
-        }
-    ]
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
       <title>GetHardware with network components</title>
       <link>https://softlayer.github.io/rest/get_hardware_components/</link>
       <pubDate>Wed, 30 Sep 2015 00:00:00 UTC</pubDate>
@@ -59,7 +22,10 @@
 
 &lt;p&gt;Parameters &lt;code&gt;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key -G --data &amp;quot;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&amp;quot;  &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getHardware&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u username:api_key -G --data &amp;quot;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&amp;quot;  &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getHardware&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 
@@ -199,9 +165,12 @@
 
 &lt;p&gt;Method: &lt;a href=&#34;http://sldn.softlayer.com/reference/services/SoftLayer_Account/getObject&#34;&gt;&lt;code&gt;SoftLayer_Account::getObject()&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=hardware.hostname;hourlyVirtualGuests.hostname;hourlyVirtualGuests.domain&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask[hardware.hostname,hourlyVirtualGuests[hostname,domain]]&amp;quot;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=hardware.hostname;hourlyVirtualGuests.hostname;hourlyVirtualGuests.domain&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask[hardware.hostname,hourlyVirtualGuests[hostname,domain]]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 
@@ -288,6 +257,46 @@
     </item>
     
     <item>
+      <title>Get Hardware hostnames</title>
+      <link>https://softlayer.github.io/rest/get_hardware_hostname/</link>
+      <pubDate>Wed, 30 Sep 2015 00:00:00 UTC</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://softlayer.github.io/rest/get_hardware_hostname/</guid>
+      <description>&lt;p&gt;Operation: &lt;code&gt;GET&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Method: &lt;a href=&#34;http://sldn.softlayer.com/reference/services/SoftLayer_Account/getObject&#34;&gt;&lt;code&gt;SoftLayer_Account::getObject()&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask[companyName,hardware[hostname]]&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u -g username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask[companyName,hardware[hostname]]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example Response:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;companyName&amp;quot;: &amp;quot;SoftLayer Internal - Development Community&amp;quot;,
+    &amp;quot;hardware&amp;quot;: [
+        {
+            &amp;quot;hostname&amp;quot;: &amp;quot;bsdal5167180245106688&amp;quot;
+        },
+        {
+            &amp;quot;hostname&amp;quot;: &amp;quot;db-server&amp;quot;
+        },
+        {
+            &amp;quot;hostname&amp;quot;: &amp;quot;db-server&amp;quot;
+        },
+        {
+            &amp;quot;hostname&amp;quot;: &amp;quot;deleteme&amp;quot;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Provision a SoftLayer server from vagrant</title>
       <link>https://softlayer.github.io/vagrant/provision_sl_vm/</link>
       <pubDate>Thu, 24 Sep 2015 00:00:00 UTC</pubDate>
@@ -367,35 +376,6 @@ end
     </item>
     
     <item>
-      <title>Install the SoftLayer CLI</title>
-      <link>https://softlayer.github.io/ansible/install_sl_cli/</link>
-      <pubDate>Wed, 23 Sep 2015 00:00:00 UTC</pubDate>
-      <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/ansible/install_sl_cli/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: all
-  sudo: yes
-  tasks:
-    - name: Update apt cache
-      apt: update_cache=yes
-
-    - name: Install pip for the install of the CLI
-      apt:
-        pkg: &amp;quot;{{ item }}&amp;quot;
-        state: present
-      when: ansible_os_family == &#39;Debian&#39;
-      with_items:
-        - python-virtualenv
-        - python-setuptools
-        - python-pip
-
-    - name: Install the SoftLayer CLI
-      pip:
-        name: softlayer
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Install the Array Networks VPN</title>
       <link>https://softlayer.github.io/ansible/install_vpn/</link>
       <pubDate>Wed, 23 Sep 2015 00:00:00 UTC</pubDate>
@@ -437,11 +417,40 @@ end
     </item>
     
     <item>
-      <title>Release notes: September 23, 2015</title>
-      <link>https://softlayer.github.io/versions/20150923/</link>
+      <title>Install the SoftLayer CLI</title>
+      <link>https://softlayer.github.io/ansible/install_sl_cli/</link>
       <pubDate>Wed, 23 Sep 2015 00:00:00 UTC</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/versions/20150923/</guid>
+      <guid>https://softlayer.github.io/ansible/install_sl_cli/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: all
+  sudo: yes
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes
+
+    - name: Install pip for the install of the CLI
+      apt:
+        pkg: &amp;quot;{{ item }}&amp;quot;
+        state: present
+      when: ansible_os_family == &#39;Debian&#39;
+      with_items:
+        - python-virtualenv
+        - python-setuptools
+        - python-pip
+
+    - name: Install the SoftLayer CLI
+      pip:
+        name: softlayer
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Release notes: September 23, 2015</title>
+      <link>https://softlayer.github.io/release_notes/20150923/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 UTC</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://softlayer.github.io/release_notes/20150923/</guid>
       <description>
 
 &lt;h4 id=&#34;portal:a4e6290f5e300c1876d661c0cae4b2bf&#34;&gt;Portal&lt;/h4&gt;
@@ -460,10 +469,10 @@ end
     
     <item>
       <title>Release notes: September 21, 2015</title>
-      <link>https://softlayer.github.io/versions/20150921/</link>
+      <link>https://softlayer.github.io/release_notes/20150921/</link>
       <pubDate>Mon, 21 Sep 2015 00:00:00 UTC</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/versions/20150921/</guid>
+      <guid>https://softlayer.github.io/release_notes/20150921/</guid>
       <description>
 
 &lt;h4 id=&#34;api:e977393f9348a7e15f46b47b0b430f89&#34;&gt;API&lt;/h4&gt;
@@ -516,6 +525,28 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     </item>
     
     <item>
+      <title>Release notes: September 16, 2015</title>
+      <link>https://softlayer.github.io/release_notes/20150916/</link>
+      <pubDate>Wed, 16 Sep 2015 00:00:00 UTC</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://softlayer.github.io/release_notes/20150916/</guid>
+      <description>
+
+&lt;h4 id=&#34;portal:dac87d438fab1ea4e1544cd7c165d4bd&#34;&gt;Portal&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fixed a minor display issue with the data transfer service&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;api:dac87d438fab1ea4e1544cd7c165d4bd&#34;&gt;API&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fixed a bug with location-based pricing and capacity restrictions. This ensures that you can continue to submit standard pricing to the API endpoints, and the back-end will automatically use the right location based prices when ordering.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Tools</title>
       <link>https://softlayer.github.io/tools/</link>
       <pubDate>Wed, 16 Sep 2015 00:00:00 UTC</pubDate>
@@ -537,33 +568,11 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     </item>
     
     <item>
-      <title>Release notes: September 16, 2015</title>
-      <link>https://softlayer.github.io/versions/20150916/</link>
-      <pubDate>Wed, 16 Sep 2015 00:00:00 UTC</pubDate>
-      <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/versions/20150916/</guid>
-      <description>
-
-&lt;h4 id=&#34;portal:dac87d438fab1ea4e1544cd7c165d4bd&#34;&gt;Portal&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fixed a minor display issue with the data transfer service&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;api:dac87d438fab1ea4e1544cd7c165d4bd&#34;&gt;API&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fixed a bug with location-based pricing and capacity restrictions. This ensures that you can continue to submit standard pricing to the API endpoints, and the back-end will automatically use the right location based prices when ordering.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Release notes: September 14, 2015</title>
-      <link>https://softlayer.github.io/versions/20150914/</link>
+      <link>https://softlayer.github.io/release_notes/20150914/</link>
       <pubDate>Mon, 14 Sep 2015 00:00:00 UTC</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/versions/20150914/</guid>
+      <guid>https://softlayer.github.io/release_notes/20150914/</guid>
       <description>
 
 &lt;h4 id=&#34;api:bbf198b3f4d5c77bacf638241ae04177&#34;&gt;API&lt;/h4&gt;
@@ -576,10 +585,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     
     <item>
       <title>Release notes: September 10, 2015</title>
-      <link>https://softlayer.github.io/versions/20150910/</link>
+      <link>https://softlayer.github.io/release_notes/20150910/</link>
       <pubDate>Thu, 10 Sep 2015 00:00:00 UTC</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/versions/20150910/</guid>
+      <guid>https://softlayer.github.io/release_notes/20150910/</guid>
       <description>
 
 &lt;h4 id=&#34;portal:0b8f48ee9f865f591b08d2fce7b8150f&#34;&gt;Portal&lt;/h4&gt;
@@ -601,10 +610,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     
     <item>
       <title>Release notes: September 02, 2015</title>
-      <link>https://softlayer.github.io/versions/20150902/</link>
+      <link>https://softlayer.github.io/release_notes/20150902/</link>
       <pubDate>Wed, 02 Sep 2015 00:00:00 UTC</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/versions/20150902/</guid>
+      <guid>https://softlayer.github.io/release_notes/20150902/</guid>
       <description>
 
 &lt;h4 id=&#34;portal:be77e81a5b14ed91114c2eb6d08092fd&#34;&gt;Portal&lt;/h4&gt;
@@ -624,10 +633,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     
     <item>
       <title>Release notes: August 29, 2015</title>
-      <link>https://softlayer.github.io/versions/20150829/</link>
+      <link>https://softlayer.github.io/release_notes/20150829/</link>
       <pubDate>Sat, 29 Aug 2015 00:00:00 UTC</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://softlayer.github.io/versions/20150829/</guid>
+      <guid>https://softlayer.github.io/release_notes/20150829/</guid>
       <description>
 
 &lt;h4 id=&#34;portal:59bda6c3bc94fc228a4ba2b9552296e4&#34;&gt;Portal&lt;/h4&gt;

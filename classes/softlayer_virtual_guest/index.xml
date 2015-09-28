@@ -18,8 +18,11 @@
 
 &lt;p&gt;URL: &lt;code&gt;SoftLayer_Virtual_Guest/{server_id}&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl --user userid:api_key curl -X DELETE
-https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/123456&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl --user userid:api_key curl -X DELETE
+https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/123456
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 
@@ -38,8 +41,11 @@ https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/123456&lt;/code&gt;&lt
 
 &lt;p&gt;URL: &lt;code&gt;SoftLayer_Virtual_Guest.json?objectMask=id&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -X POST --data @vs_create.json --user userid:api_key
-https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest.json?objectMask=id&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X POST --data @vs_create.json --user userid:api_key
+https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest.json?objectMask=mask.id
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Input JSON:&lt;/p&gt;
 
@@ -78,10 +84,13 @@ https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest.json?objectMask=id&lt;
 
 &lt;p&gt;URL: &lt;code&gt;SoftLayer_Virtual_Guest/{server_id}&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl --user userid:api_key
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl --user userid:api_key
 &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/
-7743084.json?objectMask=domain;fullyQualifiedDomainName;hostname;id;primaryBack
-endIpAddress;primaryIpAddress;status.keyName&amp;quot;&lt;/code&gt;&lt;/p&gt;
+7743084.json?objectMask=mask[domain,fullyQualifiedDomainName,hostname,id,primaryBack
+endIpAddress,primaryIpAddress,status.keyName]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 

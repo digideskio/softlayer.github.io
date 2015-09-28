@@ -8,11 +8,6 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/rest/get_hardware_hostname/</loc>
-    <lastmod>2015-09-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://softlayer.github.io/rest/get_hardware_components/</loc>
     <lastmod>2015-09-30T00:00:00+00:00</lastmod>
   </url>
@@ -23,13 +18,13 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/vagrant/provision_sl_vm/</loc>
-    <lastmod>2015-09-24T00:00:00+00:00</lastmod>
+    <loc>https://softlayer.github.io/rest/get_hardware_hostname/</loc>
+    <lastmod>2015-09-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/ansible/install_sl_cli/</loc>
-    <lastmod>2015-09-23T00:00:00+00:00</lastmod>
+    <loc>https://softlayer.github.io/vagrant/provision_sl_vm/</loc>
+    <lastmod>2015-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -38,12 +33,17 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150923/</loc>
+    <loc>https://softlayer.github.io/ansible/install_sl_cli/</loc>
     <lastmod>2015-09-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150921/</loc>
+    <loc>https://softlayer.github.io/release_notes/20150923/</loc>
+    <lastmod>2015-09-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://softlayer.github.io/release_notes/20150921/</loc>
     <lastmod>2015-09-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -53,32 +53,32 @@
   </url>
   
   <url>
+    <loc>https://softlayer.github.io/release_notes/20150916/</loc>
+    <lastmod>2015-09-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://softlayer.github.io/tools/</loc>
     <lastmod>2015-09-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150916/</loc>
-    <lastmod>2015-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://softlayer.github.io/versions/20150914/</loc>
+    <loc>https://softlayer.github.io/release_notes/20150914/</loc>
     <lastmod>2015-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150910/</loc>
+    <loc>https://softlayer.github.io/release_notes/20150910/</loc>
     <lastmod>2015-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150902/</loc>
+    <loc>https://softlayer.github.io/release_notes/20150902/</loc>
     <lastmod>2015-09-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150829/</loc>
+    <loc>https://softlayer.github.io/release_notes/20150829/</loc>
     <lastmod>2015-08-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -88,17 +88,17 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150826/</loc>
+    <loc>https://softlayer.github.io/release_notes/20150826/</loc>
     <lastmod>2015-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150824/</loc>
+    <loc>https://softlayer.github.io/release_notes/20150824/</loc>
     <lastmod>2015-08-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/versions/20150819/</loc>
+    <loc>https://softlayer.github.io/release_notes/20150819/</loc>
     <lastmod>2015-08-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -188,12 +188,12 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/php/get_monitoring_metrics/</loc>
+    <loc>https://softlayer.github.io/php/get_required_price_id/</loc>
     <lastmod>2014-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/php/get_required_price_id/</loc>
+    <loc>https://softlayer.github.io/php/get_monitoring_metrics/</loc>
     <lastmod>2014-09-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -208,12 +208,12 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/python/get_ipmi/</loc>
+    <loc>https://softlayer.github.io/python/get_required_price_id/</loc>
     <lastmod>2014-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/python/get_required_price_id/</loc>
+    <loc>https://softlayer.github.io/python/get_ipmi/</loc>
     <lastmod>2014-09-01T00:00:00+00:00</lastmod>
   </url>
   

@@ -18,9 +18,12 @@
 
 &lt;p&gt;Method: &lt;a href=&#34;http://sldn.softlayer.com/reference/services/SoftLayer_Account/getObject&#34;&gt;&lt;code&gt;SoftLayer_Account::getObject()&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask\[companyName,hardware\[hostname\]\]&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask[companyName,hardware[hostname]]&amp;quot;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask\[companyName,hardware\[hostname\]\]&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u -g username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask[companyName,hardware[hostname]]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 
@@ -55,9 +58,12 @@
 
 &lt;p&gt;Method: &lt;a href=&#34;http://sldn.softlayer.com/reference/services/SoftLayer_Account/getObject&#34;&gt;&lt;code&gt;SoftLayer_Account::getObject()&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=hardware.hostname;hourlyVirtualGuests.hostname;hourlyVirtualGuests.domain&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;URL: &lt;code&gt;SoftLayer_Account/getObject?objectMask=mask[hardware.hostname,hourlyVirtualGuests[hostname,domain]]&amp;quot;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=hardware.hostname;hourlyVirtualGuests.hostname;hourlyVirtualGuests.domain&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u username:api_key &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getObject?objectMask=mask[hardware.hostname,hourlyVirtualGuests[hostname,domain]]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 
@@ -157,7 +163,10 @@
 
 &lt;p&gt;Parameters &lt;code&gt;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Example CURL: &lt;code&gt;curl -u username:api_key -G --data &amp;quot;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&amp;quot;  &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getHardware&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -u username:api_key -G --data &amp;quot;objectMask=mask[id,fullyQualifiedDomainName,networkComponents[name,networkHardware[hostname],uplinkComponent[name,status]]]&amp;quot;  &amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Account/getHardware&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Example Response:&lt;/p&gt;
 
@@ -506,6 +515,85 @@ $invoices = $accountClient-&amp;gt;getObject();
 
 print_r($invoices);
 
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Create virtual server</title>
+      <link>https://softlayer.github.io/rest/create_virtual_server/</link>
+      <pubDate>Sun, 15 Feb 2015 00:00:00 UTC</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://softlayer.github.io/rest/create_virtual_server/</guid>
+      <description>&lt;p&gt;Operation: &lt;code&gt;POST&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;URL: &lt;code&gt;SoftLayer_Virtual_Guest.json?objectMask=id&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X POST --data @vs_create.json --user userid:api_key
+https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest.json?objectMask=mask.id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Input JSON:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;parameters&amp;quot; : [
+        {
+            &amp;quot;hostname&amp;quot; : &amp;quot;myhostname&amp;quot;,
+            &amp;quot;domain&amp;quot; : &amp;quot;my.domain.com&amp;quot;,
+            &amp;quot;startCpus&amp;quot; : 1,
+            &amp;quot;maxMemory&amp;quot; : 1024,
+            &amp;quot;datacenter&amp;quot; : {
+                &amp;quot;name&amp;quot; : &amp;quot;wdc01&amp;quot;
+                },
+            &amp;quot;hourlyBillingFlag&amp;quot; : true,
+            &amp;quot;localDiskFlag&amp;quot; : true,
+            &amp;quot;operatingSystemReferenceCode&amp;quot;: &amp;quot;UBUNTU_LATEST&amp;quot;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example Response:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{&amp;quot;id&amp;quot;:7742740}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Get virtual server details</title>
+      <link>https://softlayer.github.io/rest/get_virtual_server_details/</link>
+      <pubDate>Sun, 15 Feb 2015 00:00:00 UTC</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://softlayer.github.io/rest/get_virtual_server_details/</guid>
+      <description>&lt;p&gt;Operation: &lt;code&gt;GET&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;URL: &lt;code&gt;SoftLayer_Virtual_Guest/{server_id}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Example CURL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl --user userid:api_key
+&amp;quot;https://api.softlayer.com/rest/v3/SoftLayer_Virtual_Guest/
+7743084.json?objectMask=mask[domain,fullyQualifiedDomainName,hostname,id,primaryBack
+endIpAddress,primaryIpAddress,status.keyName]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example Response:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;domain&amp;quot;:&amp;quot;lab01.softlayer.ws&amp;quot;,
+    &amp;quot;fullyQualifiedDomainName&amp;quot;:&amp;quot;test03.lab01.softlayer.ws&amp;quot;,
+    &amp;quot;hostname&amp;quot;:&amp;quot;test03&amp;quot;,
+    &amp;quot;id&amp;quot;:7743084,
+    &amp;quot;primaryBackendIpAddress&amp;quot;:&amp;quot;10.118.68.8&amp;quot;,
+    &amp;quot;primaryIpAddress&amp;quot;:&amp;quot;168.1.79.8&amp;quot;,
+    &amp;quot;status&amp;quot;:{
+        &amp;quot;keyName&amp;quot;:&amp;quot;ACTIVE&amp;quot;,
+        &amp;quot;name&amp;quot;:&amp;quot;Active&amp;quot;
+    }
+}
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
