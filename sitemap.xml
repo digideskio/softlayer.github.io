@@ -13,12 +13,12 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/rest/get_hostnames/</loc>
+    <loc>https://softlayer.github.io/rest/get_hardware_hostname/</loc>
     <lastmod>2015-09-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/rest/get_hardware_hostname/</loc>
+    <loc>https://softlayer.github.io/rest/get_hostnames/</loc>
     <lastmod>2015-09-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -28,12 +28,12 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/ansible/install_vpn/</loc>
+    <loc>https://softlayer.github.io/ansible/install_sl_cli/</loc>
     <lastmod>2015-09-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/ansible/install_sl_cli/</loc>
+    <loc>https://softlayer.github.io/ansible/install_vpn/</loc>
     <lastmod>2015-09-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -208,12 +208,12 @@
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/python/get_required_price_id/</loc>
+    <loc>https://softlayer.github.io/python/get_ipmi/</loc>
     <lastmod>2014-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://softlayer.github.io/python/get_ipmi/</loc>
+    <loc>https://softlayer.github.io/python/get_required_price_id/</loc>
     <lastmod>2014-09-01T00:00:00+00:00</lastmod>
   </url>
   

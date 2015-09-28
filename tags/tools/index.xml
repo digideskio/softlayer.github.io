@@ -26,6 +26,12 @@
 
 &lt;p&gt;Vagrant allows for development environments to be configured in consistent ways and can provision SoftLayer servers as part of the environment creation process. Use the following command to install the SoftLayer vagrant plugin:
 &lt;code&gt;vagrant plugin install vagrant-softlayer&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;softlayer-cli-https-softlayer-github-io-softlayer-python:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;&lt;a href=&#34;https://softlayer.github.io/softlayer-python/&#34;&gt;SoftLayer CLI&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;The SoftLayer CLI tool is bundled with the softlayer-python project and offers access to many API functions from the command line. Additional information and documentation can be &lt;a href=&#34;https://softlayer.github.io/softlayer-python/&#34;&gt;found here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
