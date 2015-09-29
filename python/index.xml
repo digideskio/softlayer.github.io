@@ -310,38 +310,15 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     </item>
     
     <item>
-      <title>Token Authentication</title>
+      <title>Password Auth</title>
       <link>https://softlayer.github.io/python/token_auth/</link>
       <pubDate>Tue, 09 Jun 2015 00:00:00 UTC</pubDate>
       <author>Enthusiastic Hugo User</author>
       <guid>https://softlayer.github.io/python/token_auth/</guid>
       <description>&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import SoftLayer
-from SoftLayer import auth as slauth
-import pprint
-
-class tokenAuth():
-
-    def main(self):
-        client = SoftLayer.Client()
-        result = client[&#39;User_Customer&#39;].getPortalLoginToken(
-            &#39;username&#39;,
-            &#39;password!&#39;,
-            None,
-            None)
-        pp = pprint.PrettyPrinter(indent=4)
-        pp.pprint(result)
-        authInfo =  slauth.TokenAuthentication(result[&#39;userId&#39;], result[&#39;hash&#39;])
-        print(&amp;quot;Authentication:&amp;quot;)
-        pp.pprint(authInfo)
-        client = SoftLayer.Client(auth=authInfo)
-        apiKey = client[&#39;SoftLayer_User_Customer&#39;].getApiAuthenticationKeys(
-            id=result[&#39;userId&#39;])
-        pp.pprint(apiKey)
-
-
-if __name__ == &amp;quot;__main__&amp;quot;:
-    main = tokenAuth()
-    main.main()
+client = SoftLayer.Client()
+client.authenticate_with_password(&amp;quot;username&amp;quot;, &amp;quot;password&amp;quot;)
+print client.call(&#39;Account&#39;, &#39;getCurrentUser&#39;, mask=&#39;id,apiAuthenticationKeys&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

@@ -8,7 +8,7 @@
     <meta name="description" content="SoftLayer API Examples, implementations, and release notes.">
     <meta name="author" content="SoftLayer Evangelism Team">
 
-    <title>Token Authentication - https://softlayer.github.io/</title>
+    <title>Password Auth - https://softlayer.github.io/</title>
     <link rel="canonical" href="https://softlayer.github.io/python/token_auth/">
     
     <link href="https://softlayer.github.io/css/bootstrap.css" rel="stylesheet">
@@ -84,36 +84,13 @@
     <div class="row">
         <div class="col-md-9">
             <div class="well well-sm" style="word-wrap: break-word;">
-                <h3>Token Authentication<br> <small>Authenticate to the API with a username &#43; password instead of an API key. Might be useful if you want to GET the api key without logging in to the portal</small></h3>
+                <h3>Password Auth<br> <small>Authenticate to the API with a username &#43; password instead of an API key. Might be useful if you want to GET the api key without logging in to the portal</small></h3>
                 <hr>
                 
                 <pre><code class="language-python">import SoftLayer
-from SoftLayer import auth as slauth
-import pprint
-
-class tokenAuth():
-
-    def main(self):
-        client = SoftLayer.Client()
-        result = client['User_Customer'].getPortalLoginToken(
-            'username',
-            'password!',
-            None,
-            None)
-        pp = pprint.PrettyPrinter(indent=4)
-        pp.pprint(result)
-        authInfo =  slauth.TokenAuthentication(result['userId'], result['hash'])
-        print(&quot;Authentication:&quot;)
-        pp.pprint(authInfo)
-        client = SoftLayer.Client(auth=authInfo)
-        apiKey = client['SoftLayer_User_Customer'].getApiAuthenticationKeys(
-            id=result['userId'])
-        pp.pprint(apiKey)
-
-
-if __name__ == &quot;__main__&quot;:
-    main = tokenAuth()
-    main.main()
+client = SoftLayer.Client()
+client.authenticate_with_password(&quot;username&quot;, &quot;password&quot;)
+print client.call('Account', 'getCurrentUser', mask='id,apiAuthenticationKeys')
 </code></pre>
 
             </div>
@@ -128,18 +105,18 @@ if __name__ == &quot;__main__&quot;:
                 <strong>Classes</strong>
                 <ul class="list-unstyled">
                 
-                    <li><a href="https://softlayer.github.io/classes/softlayer_user_customer">SoftLayer_User_Customer</a></li>
+                    <li><a href="https://softlayer.github.io/classes/softlayer_account">SoftLayer_Account</a></li>
                 
                 </ul>
                 <hr>
                 <strong>Tags <span class="fa fa-tags"/></strong><br>
-                <a class="label label-default" href="https://softlayer.github.io/tags/tokenauthentication">TokenAuthentication</a>
+                <a class="label label-default" href="https://softlayer.github.io/tags/authentication">authentication</a>
                  
                 <hr>
                 <strong>Feedback? <span class="fa fa-comment"/></strong>
                     <p>
                         We would love to hear it<br>
-                        <a class="" href="https://github.com/softlayer/api_examples/issues/new?title=Feedback%20for%20python%20-%20Token%20Authentication&body=Feedback+regarding%3A%20https%3a%2f%2fsoftlayer.github.io%2fpython%2ftoken_auth%2f"><span class="fa fa-github-square"/> Open an issue</a>
+                        <a class="" href="https://github.com/softlayer/api_examples/issues/new?title=Feedback%20for%20python%20-%20Password%20Auth&body=Feedback+regarding%3A%20https%3a%2f%2fsoftlayer.github.io%2fpython%2ftoken_auth%2f"><span class="fa fa-github-square"/> Open an issue</a>
                     </p>
                     
                 

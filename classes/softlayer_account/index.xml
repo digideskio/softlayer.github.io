@@ -409,6 +409,20 @@ if __name__ == &#39;__main__&#39;:
     </item>
     
     <item>
+      <title>Password Auth</title>
+      <link>https://softlayer.github.io/python/token_auth/</link>
+      <pubDate>Tue, 09 Jun 2015 00:00:00 UTC</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://softlayer.github.io/python/token_auth/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import SoftLayer
+client = SoftLayer.Client()
+client.authenticate_with_password(&amp;quot;username&amp;quot;, &amp;quot;password&amp;quot;)
+print client.call(&#39;Account&#39;, &#39;getCurrentUser&#39;, mask=&#39;id,apiAuthenticationKeys&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Change Passwords</title>
       <link>https://softlayer.github.io/python/change_multi_pass/</link>
       <pubDate>Sat, 30 May 2015 00:00:00 UTC</pubDate>
