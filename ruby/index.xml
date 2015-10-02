@@ -17,22 +17,71 @@
       <description>&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;softlayer_api&#39;
 require &#39;table_print&#39;
 
-softlayer_client = SoftLayer::Client.new()
-account = SoftLayer::Account.account_for_client(softlayer_client)
+SoftLayer::Client.default_client = SoftLayer::Client.new
 
-servers = SoftLayer::VirtualServer.find_servers(:client =&amp;gt; softlayer_client, :object_mask =&amp;gt; &#39;mask[location.pathString]&#39;)
+servers = SoftLayer::VirtualServer.find_servers(object_mask: &#39;mask[location.pathString]&#39;)
 location_info = servers.map do |server|
   datacenter, server_room, rack, slot = server[&#39;location&#39;][&#39;pathString&#39;].split(&#39;.&#39;)
-  { :server =&amp;gt; server.fullyQualifiedDomainName,
-    :data_center =&amp;gt; datacenter, 
-    :server_room =&amp;gt; server_room, 
-    :rack =&amp;gt; rack, 
-    :slot =&amp;gt; slot
+  {
+    server: server.fullyQualifiedDomainName,
+    data_center: datacenter,
+    server_room: server_room,
+    rack: rack,
+    slot: slot
   }
 end
 
 
 tp location_info
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Create child SoftLayer Account</title>
+      <link>https://softlayer.github.io/ruby/create_account/</link>
+      <pubDate>Mon, 01 Sep 2014 00:00:00 UTC</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://softlayer.github.io/ruby/create_account/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;softlayer_api&#39;
+require &#39;pp&#39;
+
+client = SoftLayer::Client.default_client = SoftLayer::Client.new
+
+account_service = client[&#39;Account&#39;]
+brand_service = client[&#39;Brand&#39;]
+
+brand = account_service.getBrand
+
+cust_account = {
+  brandId: brand[&#39;id&#39;].to_i, # change me
+  allowedPptpVpnQuantity: 1,
+  claimedTaxExemptTxFlag: false,
+  companyName: &#39;&#39;, # change me
+  isReseller: 0,
+  lateFeeProtectionFlag: true,
+  firstName: &#39;&#39;, # change me
+  lastName: &#39;&#39;, # change me
+  email: &#39;&#39;, # change me
+  officePhone: &#39;&#39;, # change me
+  address1: &#39;&#39;, # change me
+  city: &#39;&#39;, # change me
+  state: &#39;&#39;, # change me
+  postalCode: &#39;&#39;, # change me
+  country: &#39;&#39; # change me
+}
+
+puts &#39;&#39;
+pp cust_account
+puts &#39;&#39;
+
+begin
+  result = brand_service.createCustomerAccount(cust_account)
+  puts &#39;Result: &#39;
+  pp result
+rescue Exception =&amp;gt; e
+  puts &amp;quot;Error: #{e}&amp;quot;
+end
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

@@ -8,8 +8,8 @@
     <meta name="description" content="SoftLayer API Examples, implementations, and release notes.">
     <meta name="author" content="SoftLayer Evangelism Team">
 
-    <title>Server Locate - https://softlayer.github.io/</title>
-    <link rel="canonical" href="https://softlayer.github.io/ruby/server_locate/">
+    <title>Create child SoftLayer Account - https://softlayer.github.io/</title>
+    <link rel="canonical" href="https://softlayer.github.io/ruby/create_account/">
     
     <link href="https://softlayer.github.io/css/bootstrap.css" rel="stylesheet">
     <link href="https://softlayer.github.io/css/font-awesome.css" rel="stylesheet">
@@ -84,28 +84,48 @@
     <div class="row">
         <div class="col-md-9">
             <div class="well well-sm" style="word-wrap: break-word;">
-                <h3>Server Locate<br> <small>List specific physical location for virtual machines</small></h3>
+                <h3>Create child SoftLayer Account<br> <small>Create SoftLayer End-Customer Account on Brand Account</small></h3>
                 <hr>
                 
                 <pre><code class="language-ruby">require 'softlayer_api'
-require 'table_print'
+require 'pp'
 
-SoftLayer::Client.default_client = SoftLayer::Client.new
+client = SoftLayer::Client.default_client = SoftLayer::Client.new
 
-servers = SoftLayer::VirtualServer.find_servers(object_mask: 'mask[location.pathString]')
-location_info = servers.map do |server|
-  datacenter, server_room, rack, slot = server['location']['pathString'].split('.')
-  {
-    server: server.fullyQualifiedDomainName,
-    data_center: datacenter,
-    server_room: server_room,
-    rack: rack,
-    slot: slot
-  }
+account_service = client['Account']
+brand_service = client['Brand']
+
+brand = account_service.getBrand
+
+cust_account = {
+  brandId: brand['id'].to_i, # change me
+  allowedPptpVpnQuantity: 1,
+  claimedTaxExemptTxFlag: false,
+  companyName: '', # change me
+  isReseller: 0,
+  lateFeeProtectionFlag: true,
+  firstName: '', # change me
+  lastName: '', # change me
+  email: '', # change me
+  officePhone: '', # change me
+  address1: '', # change me
+  city: '', # change me
+  state: '', # change me
+  postalCode: '', # change me
+  country: '' # change me
+}
+
+puts ''
+pp cust_account
+puts ''
+
+begin
+  result = brand_service.createCustomerAccount(cust_account)
+  puts 'Result: '
+  pp result
+rescue Exception =&gt; e
+  puts &quot;Error: #{e}&quot;
 end
-
-
-tp location_info
 </code></pre>
 
             </div>
@@ -114,27 +134,24 @@ tp location_info
         
         <div class="col-md-3">
             <div class="well well-sm" style="word-wrap: break-word;"> 
-                <h4>September 30, 2014<br>
+                <h4>September 1, 2014<br>
                 </h4>
                 <hr>
                 <strong>Classes</strong>
                 <ul class="list-unstyled">
                 
-                    <li><a href="https://softlayer.github.io/classes/softlayer_account">SoftLayer_Account</a></li>
+                    <li><a href="https://softlayer.github.io/classes/softlayer_brand">SoftLayer_Brand</a></li>
                 
                 </ul>
                 <hr>
                 <strong>Tags <span class="fa fa-tags"/></strong><br>
-                <a class="label label-default" href="https://softlayer.github.io/tags/virtual">virtual</a>
-                 <a class="label label-default" href="https://softlayer.github.io/tags/datacenter">datacenter</a>
-                 <a class="label label-default" href="https://softlayer.github.io/tags/objectmask">objectMask</a>
-                 <a class="label label-default" href="https://softlayer.github.io/tags/objectfilter">objectFilter</a>
+                <a class="label label-default" href="https://softlayer.github.io/tags/bap">bap</a>
                  
                 <hr>
                 <strong>Feedback? <span class="fa fa-comment"/></strong>
                     <p>
                         We would love to hear it<br>
-                        <a class="" href="https://github.com/softlayer/api_examples/issues/new?title=Feedback%20for%20ruby%20-%20Server%20Locate&body=Feedback+regarding%3A%20https%3a%2f%2fsoftlayer.github.io%2fruby%2fserver_locate%2f"><span class="fa fa-github-square"/> Open an issue</a>
+                        <a class="" href="https://github.com/softlayer/api_examples/issues/new?title=Feedback%20for%20ruby%20-%20Create%20child%20SoftLayer%20Account&body=Feedback+regarding%3A%20https%3a%2f%2fsoftlayer.github.io%2fruby%2fcreate_account%2f"><span class="fa fa-github-square"/> Open an issue</a>
                     </p>
                     
                 
